@@ -1,3 +1,4 @@
+from importlib.metadata import entry_points
 from setuptools import setup, find_packages
 from pathlib import Path
 
@@ -22,7 +23,7 @@ DEPENDENCIES = [
 ]
 
 setup (
-    name = "jdp-cli",
+    name = "jdp-cli-web",
     version = VERSION,
     description = DESCRIPTION,
     long_description = README + '\n\n' + HISTORY,
@@ -33,8 +34,8 @@ setup (
     install_requires = DEPENDENCIES,
     setup_requires=['wheel'],
     entry_points = {
-        "console_scripts": [
-            "jdp=jdp_cli:main",
+        'jdp_cli.commands': [
+            'web = jdp_cli_web'
         ]
     }
 )
