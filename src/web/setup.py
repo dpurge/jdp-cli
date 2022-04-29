@@ -19,7 +19,9 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    "knack"
+    'knack',
+    'requests',
+    'bs4'
 ]
 
 setup (

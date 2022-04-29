@@ -1,22 +1,22 @@
 from knack.help_files import helps  # pylint: disable=unused-import
 
-helps['example'] = """
+helps['web'] = """
     type: group
-    short-summary: Example commands.
+    short-summary: Commands for working with web resources.
 """
 
-helps['example create'] = """
+helps['web get-text'] = """
     type: command
-    short-summary: Example create command.
+    short-summary: Get text content from web page
     examples:
-        - name: Create example
-          text: jdp example create --name EXAMPLE
+        - name: Get text from web page
+          text: jdp web get-text --uri http://example.com/
 """
 
-helps['example show'] = """
+helps['web show'] = """
     type: command
     short-summary: Example show command.
     examples:
         - name: Display example
-          text: jdp example show --name EXAMPLE
+          text: jdp web show --name EXAMPLE
 """
