@@ -16,10 +16,10 @@ def load_commands(cmd_loader):
 def load_arguments(cmd_loader):
         
     with ArgumentsContext(cmd_loader, 'epub build-project') as ac:
-        ac.argument('project',
-            options_list=['--project', '-p'],
+        ac.argument('config',
+            options_list=['--config', '-c'],
             help='Path to book project file',
-            validator=validate_project,
+            validator=validate_config,
             type=str)
     
     with ArgumentsContext(cmd_loader, 'epub get-vocabulary') as ac:

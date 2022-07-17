@@ -1,7 +1,7 @@
 import re
 from knack.util import CLIError
 
-def validate_project(namespace):
+def validate_config(namespace):
     pass
 
 def validate_book(namespace):

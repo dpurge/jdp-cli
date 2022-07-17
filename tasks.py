@@ -2,7 +2,6 @@ from invoke import task
 from pathlib import Path
 
 modules = [x for x in Path('src').iterdir() if x.is_dir()]
-# activate_script = Path('./.venv/Scripts/Activate.bat')
 
 @task
 def clean(c):
@@ -21,7 +20,6 @@ def clean(c):
 
 @task
 def build(c):
-    # with c.prefix(activate_script.absolute()):
     for module in modules:
         module_path = module.absolute()
         print('Building module: {name}'.format(name = module_path))

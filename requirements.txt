@@ -1,6 +1,0 @@
-invoke
-knack
-wheel
-check_wheel_contents
-requests
-bs4
