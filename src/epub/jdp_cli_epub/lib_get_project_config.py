@@ -6,6 +6,7 @@ from typing import List
 from knack.util import CLIError
 
 class ProjectConfig(BaseModel):
+    project: Path
     title: str
     identifier: str
     filename: str
@@ -36,7 +37,7 @@ def lib_get_project_config(config):
         raise CLIError(f'Cannot parse project configuration: {e}')
 
     try:
-        cfg = ProjectConfig(**data)
+        cfg = ProjectConfig(project=config_path, **data)
     except ValidationError as e:
         raise CLIError(f'Error validating project configuration: {e}')
 
