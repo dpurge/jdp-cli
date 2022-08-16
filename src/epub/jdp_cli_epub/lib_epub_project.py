@@ -79,7 +79,6 @@ class EpubProject:
 
 def get_epub_project(config):
     config_path = Path(config).absolute()
-    print(config_path)
     if not config_path.is_file():
         raise CLIError(f'Project configuration file does not exist: {config_path}')
     

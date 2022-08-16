@@ -8,6 +8,10 @@ knack = "*"
 requests = "*"
 bs4 = "*"
 ebooklib = "*"
+jinja2 = "*"
+markdown = "<3.4"
+markdown-full-yaml-metadata = "*"
+lxml = "*"
 
 [dev-packages]
 invoke = "*"

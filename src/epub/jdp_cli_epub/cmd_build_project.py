@@ -1,12 +1,13 @@
-from pathlib import Path, PurePath
+from pathlib import Path
 from ebooklib import epub
 
 from .lib_epub_project import get_epub_project
 from .lib_epub_style import get_epub_style
 from .lib_epub_font import get_epub_font
 from .lib_epub_image import get_epub_image
-
-import pprint
+from .lib_epub_section import get_epub_section
+from .lib_epub_text import get_epub_text
+from .lib_epub_tools import sequence
 
 def cmd_build_project(config='jdp-book.toml', filename=None):
     cfg = get_epub_project(config=config)
@@ -14,8 +15,6 @@ def cmd_build_project(config='jdp-book.toml', filename=None):
 
     if filename:
         cfg.filename = Path(filename).absolute()
-
-    # pprint.pprint(cfg)
 
     book = epub.EpubBook()
 
@@ -38,6 +37,24 @@ def cmd_build_project(config='jdp-book.toml', filename=None):
     book.spine = ['nav']
 
     book.toc = []
+
+    section_sequence = sequence()
+    text_sequence = sequence()
+
+    for section in cfg.section:
+        sec, txt = get_epub_section(text=section.head, template=cfg.template, sequence = section_sequence)
+        if sec and txt:
+            book.add_item(txt)
+            book.spine.append(txt)
+
+            section_texts = []
+            for text in section.text:
+                txt = get_epub_text(text=text, template=cfg.template, sequence = text_sequence)
+                book.add_item(txt)
+                book.spine.append(txt)
+                section_texts.append(txt)
+
+            book.toc.append((sec, section_texts))
 
     book.add_item(epub.EpubNcx())
     
