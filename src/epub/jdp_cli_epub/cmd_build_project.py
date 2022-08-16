@@ -9,12 +9,15 @@ from .lib_epub_section import get_epub_section
 from .lib_epub_text import get_epub_text
 from .lib_epub_tools import sequence
 
-def cmd_build_project(config='jdp-book.toml', filename=None):
+def cmd_build_project(config='jdp-book.toml', filename=None, directory=None):
     cfg = get_epub_project(config=config)
     p = cfg.project.parent
 
     if filename:
         cfg.filename = Path(filename).absolute()
+
+    if directory:
+        cfg.filename = Path(directory).absolute() / cfg.filename.name
 
     book = epub.EpubBook()
 

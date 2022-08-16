@@ -9,3 +9,6 @@ def validate_book(namespace):
 
 def validate_filename(namespace):
     pass
+
+def validate_directory(namespace):
+    pass
