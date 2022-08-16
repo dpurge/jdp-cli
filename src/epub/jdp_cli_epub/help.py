@@ -13,6 +13,8 @@ helps['epub build-project'] = """
           text: jdp epub build-project
         - name: Build custom project file
           text: jdp epub build-project --config my-book.toml
+        - name: Build default project file jdp-book.toml to the output file
+          text: jdp epub build-project --output my-book.epub
 """
 
 helps['epub get-vocabulary'] = """

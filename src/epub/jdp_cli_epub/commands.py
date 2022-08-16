@@ -21,6 +21,11 @@ def load_arguments(cmd_loader):
             help='Path to book project file',
             validator=validate_config,
             type=str)
+        ac.argument('filename',
+            options_list=['--filename', '-f'],
+            help='Name of the output file',
+            validator=validate_filename,
+            type=str)
     
     with ArgumentsContext(cmd_loader, 'epub get-vocabulary') as ac:
         ac.argument('book',

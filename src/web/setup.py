@@ -21,7 +21,8 @@ CLASSIFIERS = [
 DEPENDENCIES = [
     'knack',
     'requests',
-    'bs4'
+    'bs4',
+    'ebooklib'
 ]
 
 setup (
