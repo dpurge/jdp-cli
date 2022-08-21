@@ -31,39 +31,39 @@ class EpubProject:
     @validator('project')
     def check_project(cls, project):
         if not project.is_file():
-            raise CLIError(f'Project path does not exist: {project}')
-        return project.absolute()
+            raise CLIError(f'Project path does not exist: {project.resolve()}')
+        return project.resolve()
 
     @validator('filename')
     def check_filename(cls, filename):
-        return filename.absolute()
+        return filename.resolve()
 
     @validator('cover')
     def check_file_exists(cls, filename):
         if not filename.is_file():
-            raise CLIError(f'File does not exist: {filename}')
-        return filename.absolute()
+            raise CLIError(f'File does not exist: {filename.resolve()}')
+        return filename.resolve()
 
     @validator('stylesheet', 'font', 'image')
     def check_files_exist(cls, filenames):
         for filename in filenames:
             if not filename.is_file():
-                raise CLIError(f'File does not exist: {filename}')
-        filenames = [i.absolute() for i in filenames]
+                raise CLIError(f'File does not exist: {filename.resolve()}')
+        filenames = [i.resolve() for i in filenames]
         return filenames
 
     @validator('section')
     def check_sections(cls, sections):
         for section in sections:
             if not section.head.is_file():
-                raise CLIError(f'File does not exist: {section.head}')
+                raise CLIError(f'File does not exist: {section.head.resolve()}')
 
             for text in section.text:
                 if not text.is_file():
-                    raise CLIError(f'File does not exist: {text}')
+                    raise CLIError(f'File does not exist: {text.resolve()}')
 
-            section.head = section.head.absolute()
-            section.text = [i.absolute() for i in section.text]
+            section.head = section.head.resolve()
+            section.text = [i.resolve() for i in section.text]
 
         return sections
 
