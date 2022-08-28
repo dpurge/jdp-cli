@@ -28,6 +28,8 @@ def media_type_for_filename(filename):
         return 'text/css'
     elif (suffix=='.ttf'):
         return 'application/vnd.ms-opentype'
+    elif (suffix=='.ttc'):
+        return 'application/vnd.ms-opentype'
     elif (suffix=='.svg'):
         return 'image/svg+xml'
     elif (suffix=='.png'):
