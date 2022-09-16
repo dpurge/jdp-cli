@@ -12,6 +12,8 @@ jinja2 = "*"
 markdown = "<3.4"
 markdown-full-yaml-metadata = "*"
 lxml = "*"
+tomli = "*"
+pydantic = "*"
 
 [dev-packages]
 invoke = "*"
