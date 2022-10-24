@@ -14,6 +14,7 @@ markdown-full-yaml-metadata = "*"
 lxml = "*"
 tomli = "*"
 pydantic = "*"
+genanki = "*"
 
 [dev-packages]
 invoke = "*"

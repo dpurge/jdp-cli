@@ -12,7 +12,11 @@ helps['anki build-project'] = """
         - name: Build default project file jdp-apkg.toml
           text: jdp anki build-project
         - name: Build custom project file
-          text: jdp anki build-project --project my-anki.toml
+          text: jdp anki build-project --config my-anki.toml
+        - name: Build default project file jdp-apkg.toml to the output file
+          text: jdp epub build-project --filename my-flashcards.epub
+        - name: Build default project file jdp-apkg.toml to the output directory
+          text: jdp epub build-project --directory ./out
 """
 
 helps['anki get-data'] = """

@@ -2,11 +2,12 @@ import os
 import tomli
 
 from pathlib import Path
-from pydantic import BaseModel, validator, ValidationError
+from pydantic import validator, ValidationError
 from pydantic.dataclasses import dataclass
 from typing import List
 from knack.util import CLIError
-from .lib_epub_tools import push_directory
+# from .lib_epub_tools import push_directory
+from jdp_cli.lib_cli_tools import push_directory
 
 @dataclass
 class EpubSection:
@@ -16,9 +17,9 @@ class EpubSection:
 @dataclass
 class EpubProject:
     project: Path
+    filename: Path
     title: str
     identifier: str
-    filename: Path
     language: str
     cover: Path
     template: Path

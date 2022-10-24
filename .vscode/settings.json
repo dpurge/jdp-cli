@@ -5,6 +5,7 @@
         ".vscode": true,
         "src/*/*.egg-info": true,
         "src/*/build": true,
-        "src/*/dist": true
+        "src/*/dist": true,
+        "src/**/__pycache__": true
     }
 }

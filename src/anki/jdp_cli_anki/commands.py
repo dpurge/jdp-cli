@@ -16,10 +16,20 @@ def load_commands(cmd_loader):
 def load_arguments(cmd_loader):
         
     with ArgumentsContext(cmd_loader, 'anki build-project') as ac:
-        ac.argument('project',
-            options_list=['--project', '-p'],
-            help='Path to Anki package project file',
-            validator=validate_project,
+        ac.argument('config',
+            options_list=['--config', '-c'],
+            help='Path to book project file',
+            validator=validate_config,
+            type=str)
+        ac.argument('filename',
+            options_list=['--filename', '-f'],
+            help='Name of the output file',
+            validator=validate_filename,
+            type=str)
+        ac.argument('directory',
+            options_list=['--directory', '-d'],
+            help='Name of the output directory',
+            validator=validate_directory,
             type=str)
     
     with ArgumentsContext(cmd_loader, 'anki get-data') as ac:
@@ -28,13 +38,18 @@ def load_arguments(cmd_loader):
             help='Path to Anki package file',
             validator=validate_anki_package,
             type=str)
-        ac.argument('output',
-            options_list=['--output', '-o'],
-            help='Path to the output file',
-            validator=validate_output,
-            type=str)
         ac.argument('output_format',
-            options_list=['--output-format', '-f'],
+            options_list=['--output-format', '-F'],
             help='Format of the output file',
             validator=validate_output_format,
+            type=str)
+        ac.argument('filename',
+            options_list=['--filename', '-f'],
+            help='Name of the output file',
+            validator=validate_filename,
+            type=str)
+        ac.argument('directory',
+            options_list=['--directory', '-d'],
+            help='Name of the output directory',
+            validator=validate_directory,
             type=str)
