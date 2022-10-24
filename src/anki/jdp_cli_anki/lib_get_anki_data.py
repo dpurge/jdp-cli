@@ -1,6 +1,7 @@
 import json
 import yaml
 import csv
+import frontmatter
 
 from knack.util import CLIError
 
@@ -13,10 +14,17 @@ def get_csv_data(filepath):
 
 def get_markdown_data(filepath):
     with filepath.open(mode="r", encoding="utf-8") as f:
-        contents = f.read()
-    for record in contents.split("\n---\n"):
-        data = record.strip()
-        yield data
+        fm = frontmatter.load(f)
+
+    if not 'fields' in fm.keys():
+        raise CLIError(f'File does not specify fields in the metadata: {filepath}')
+
+    fields = fm.get('fields')
+    content = fm.content
+
+    for record in content.split("\n\n***\n\n"):
+        values = [i.strip() for i in record.split("\n\n---\n\n")]
+        yield dict(zip(fields,values))
 
 
 def get_json_data(filepath):
@@ -33,8 +41,8 @@ def get_yaml_data(filepath):
         yield data
 
 data_readers = {
-    '.csv': get_csv_data,
-    '.md': get_markdown_data,
+    '.csv' : get_csv_data,
+    '.md'  : get_markdown_data,
     '.json': get_json_data,
     '.yaml': get_yaml_data
 }

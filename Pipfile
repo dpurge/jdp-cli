@@ -15,6 +15,7 @@ lxml = "*"
 tomli = "*"
 pydantic = "*"
 genanki = "*"
+python-frontmatter = "*"
 
 [dev-packages]
 invoke = "*"
