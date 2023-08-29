@@ -14,7 +14,8 @@ import re
 
 from markdown.extensions import Extension
 from markdown.blockprocessors import BlockProcessor, ListIndentProcessor
-from markdown.util import etree
+# from markdown.util import etree
+import xml.etree.ElementTree as etree
 
 class VocabularyListProcessor(BlockProcessor):
 
