@@ -7,7 +7,6 @@ from .lib_epub_font import get_epub_font
 from .lib_epub_image import get_epub_image
 from .lib_epub_section import get_epub_section
 from .lib_epub_text import get_epub_text
-# from .lib_epub_tools import sequence
 from jdp_cli.lib_cli_tools import sequence
 
 def cmd_build_project(config='jdp-book.toml', filename=None, directory=None):
