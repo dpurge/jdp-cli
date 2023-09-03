@@ -24,21 +24,21 @@ class ParallelTextProcessor(BlockProcessor):
                 text_element = etree.SubElement(parent, 'div')
                 text_element.set('class', 'parallel-text')
 
-                next_row = True
+                next_block = True
                 for _ in range(0, block_num + 1):
                     block = blocks.pop(0)
                     block = block.strip()
 
                     if block:
                         
-                        if next_row:
+                        if next_block:
                             row_element = etree.SubElement(text_element, 'div')
-                            row_element.set('class', 'parallel-row')
+                            row_element.set('class', 'parallel-block')
 
                         block_element = etree.SubElement(row_element, 'div')
-                        block_element.set('class', 'parallel-block-left' if next_row else 'parallel-block-right')
+                        block_element.set('class', 'parallel-cell text' if next_block else 'parallel-cell translation')
                         self.parser.parseBlocks(block_element, [block])
-                        next_row = not next_row
+                        next_block = not next_block
 
                 return True
             

@@ -5,7 +5,10 @@ from pathlib import Path
 from ebooklib.epub import EpubHtml
 from lxml.html import fromstring
 
-from .mdextension import VocabularyListExtension, DialogListExtension
+from .mdextension import (
+    VocabularyListExtension,
+    DialogListExtension,
+    ParallelTextExtension)
 from .lib_epub_tools import uid_for_path
 
 def get_epub_text(text, template, sequence):
@@ -20,7 +23,8 @@ def get_epub_text(text, template, sequence):
         'full_yaml_metadata',
         'attr_list',
         VocabularyListExtension(),
-        DialogListExtension()])
+        DialogListExtension(),
+        ParallelTextExtension()])
 
     with open(text, encoding='utf-8') as f:
         txt = f.read()
