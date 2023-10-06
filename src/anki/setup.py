@@ -19,7 +19,10 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'knack'
+    'knack',
+    'genanki',
+    'jinja2',
+    'markdown'
 ]
 
 setup (

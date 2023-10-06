@@ -34,7 +34,7 @@ setup (
     setup_requires=['wheel'],
     entry_points = {
         "console_scripts": [
-            "jdp=jdp_cli:main",
+            "jdp=jdp_cli.__main__:main",
         ]
     }
 )
