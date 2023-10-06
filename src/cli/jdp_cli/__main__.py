@@ -7,4 +7,5 @@ def main():
     exit_code = jdp_cli.invoke(sys.argv[1:])
     sys.exit(exit_code)
 
-main()
+if __name__ == '__main__':
+    main()
