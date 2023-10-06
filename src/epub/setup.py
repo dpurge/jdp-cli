@@ -19,7 +19,10 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'knack'
+    'knack',
+    'ebooklib',
+    'tomli',
+    'pydantic'
 ]
 
 setup (

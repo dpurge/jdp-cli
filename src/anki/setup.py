@@ -22,7 +22,8 @@ DEPENDENCIES = [
     'knack',
     'genanki',
     'jinja2',
-    'markdown'
+    'markdown',
+    'frontmatter'
 ]
 
 setup (
