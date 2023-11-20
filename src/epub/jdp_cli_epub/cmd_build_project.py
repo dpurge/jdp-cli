@@ -62,7 +62,9 @@ def cmd_build_project(config='jdp-book.toml', filename=None, directory=None):
     book.add_item(epub.EpubNcx())
     
     nav = epub.EpubNav()
-
+    style_nav = book.get_item_with_id(uid_for_path('style/nav.css'))
+    if style_nav:
+        nav.add_item(style_nav)
     book.add_item(nav)
 
     cfg.filename.parent.mkdir(parents=True, exist_ok=True)
