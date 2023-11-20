@@ -20,9 +20,13 @@ CLASSIFIERS = [
 
 DEPENDENCIES = [
     'knack',
-    'ebooklib',
+    'EbookLib',
+    'Jinja2',
     'tomli',
-    'pydantic'
+    'pydantic',
+    'PyYAML',
+    'Markdown',
+    'markdown-full-yaml-metadata'
 ]
 
 setup (
